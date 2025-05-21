@@ -7,6 +7,7 @@ import plotly.graph_objs as go
 from wordcloud import WordCloud
 import matplotlib.pyplot as plt
 import pathlib
+from pathlib import Path
 import logging, sys
 # ---------- 追加 ----------
 logging.basicConfig(
@@ -151,9 +152,7 @@ with tab1:
     text_join = " ".join(data[COLUMN_MAP["text"]].dropna().astype(str))
     if text_join:
         jp_fonts = [  # 利用可能な日本語フォントの候補
-            "/System/Library/Fonts/ヒラギノ角ゴシック W3.ttc",
-            "/usr/share/fonts/truetype/noto/NotoSansCJK-Regular.ttc",
-            "C:\\Windows\\Fonts\\msgothic.ttc"
+            Path(__file__).parent / "assets/fonts/NotoSansJP-VariableFont_wght.ttf",
         ]
         font_path = next((p for p in jp_fonts if pathlib.Path(p).exists()), None)
         wc = WordCloud(width=800, height=400, background_color="white",
