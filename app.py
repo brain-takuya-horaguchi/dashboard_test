@@ -152,7 +152,7 @@ with tab1:
     text_join = " ".join(data[COLUMN_MAP["text"]].dropna().astype(str))
     if text_join:
         jp_fonts = [  # 利用可能な日本語フォントの候補
-            Path(__file__).parent / "assets/fonts/NotoSansJP-VariableFont_wght.ttf",
+            Path(__file__).parent / "assets/fonts/NotoSansJP-VariableFont.ttf",
         ]
         font_path = next((p for p in jp_fonts if pathlib.Path(p).exists()), None)
         wc = WordCloud(width=800, height=400, background_color="white",
